@@ -75,3 +75,32 @@ if p1Count > 2 or (p1Count == 2 and wins[2]):
     print('Prediction 1 has the better model')
 else:
     print('Prediction 2 has the better model')
+
+print('\n---------------------------------- QUESTION 2 ----------------------------------')
+
+actual = [20, 100, 300]
+predicted1 = [20, 80, 300]
+predicted2 = [60, 80, 270]
+
+print(f'''
+Actual Values: {actual}
+Model 1 Predictions: {predicted1}
+Model 2 Predictions : {predicted2}
+''')
+
+MAE1 = MAE(actual, predicted1)
+MSE2 = MAE(actual, predicted2)
+MAPE1 = MAPE(actual, predicted1)
+MAPE2 = MAPE(actual, predicted2)
+
+print(f'''
+MAE Prediction 1:  {MAE1}
+MAPE Prediction 1: {MAPE1*100}%
+MAE Prediction 2:  {MAE2}
+MAPE Prediction 2: {MAPE2*100}%
+
+Model 1 has a much higher mean absolute error than model 2 and yet model 2 has
+the higher mean absolute percentage error. With this case in mind, it cannot be
+said that lower mean absolute error always means lower mean absolute percentage
+error.
+''')

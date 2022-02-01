@@ -52,6 +52,7 @@ for hall in dining_halls.values():
     MAPE2 += abs((hall['actual'] - hall['predicted2'])/hall['actual'])
     MSE1 += (hall['actual'] - hall['predicted1'])**2
     MSE2 += (hall['actual'] - hall['predicted2'])**2
+    
 MAE1 /= n
 MAE2 /= n
 MAPE1 = MAPE1/n * 100
