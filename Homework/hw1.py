@@ -76,8 +76,7 @@ RMSE Prediction 2 = {RMSE2}
 # evalute on which has the least error in the most cases
 # if tied, prioritize MSE
 wins = [MAE1 < MAE2, MAPE1 < MAPE2, MSE1 < MSE2, RMSE1 < RMSE2]
-p1Count = wins.count(True)
-if p1Count > 2 or (p1Count == 2 and wins[2]):
+if wins.count(True) > 2:
     print('Prediction 1 has the better model')
 else:
     print('Prediction 2 has the better model')
