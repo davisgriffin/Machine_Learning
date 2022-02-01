@@ -48,8 +48,8 @@ n = len(dining_halls)
 for hall in dining_halls.values():
     MAE1 += abs(hall['actual'] - hall['predicted1'])
     MAE2 += abs(hall['actual'] - hall['predicted2'])
-    MAPE1 += abs((hall['actual'] - hall['predicted1'])/hall['predicted1'])
-    MAPE2 += abs((hall['actual'] - hall['predicted2'])/hall['predicted2'])
+    MAPE1 += abs((hall['actual'] - hall['predicted1'])/hall['actual'])
+    MAPE2 += abs((hall['actual'] - hall['predicted2'])/hall['actual'])
     MSE1 += (hall['actual'] - hall['predicted1'])**2
     MSE2 += (hall['actual'] - hall['predicted2'])**2
 MAE1 /= n
