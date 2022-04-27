@@ -17,9 +17,12 @@ class SpaceTowerDefense():
         self.screen = screen
 
         self.tower = Tower((screen_width/2, screen_height))
-        self.cannon = Cannon((self.tower.rect.centerx, self.tower.rect.top))
+        self.cannon = Cannon(
+            (self.tower.rect.centerx, self.tower.rect.top),
+            (screen_width, screen_height)
+        )
         self.asteroids = [
-            Asteroid(screen_width, (self.cannon.x, self.cannon.y))
+            Asteroid(screen_width, self.cannon.rect.center)
         ] * 100
 
         self.hit_reward = 100
@@ -28,14 +31,13 @@ class SpaceTowerDefense():
         self.hit_target = False
 
     def run(self):
+        self.cannon.get_input()
         self.screen.blit(self.cannon.image, self.cannon.rect)
         self.screen.blit(self.tower.image, self.tower.rect)
 
     def action(self, action):
-        if action == 0 and self.cannon.theta < 90:
-            self.cannon.theta += self.cannon.theta_delta
-        elif action == 1 and self.cannon.theta > -90:
-            self.cannon.theta -= self.cannon.theta_delta
+        if action != 2:
+            self.cannon.rotate_cannon(action)
 
         self.cannon.update()
 
